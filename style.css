@@ -13,17 +13,23 @@ html {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 .form {
+    opacity: 0;
+    transition: all linear 0.2s;
     width: 360px;
     min-height: 100px;
     padding: 32px 24px;
     text-align: center;
     background: #fff;
-    border-radius: 2px;
-    margin: 24px;
+    border-radius: 10px;
     align-self: center;
-    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+    box-shadow: 0 8px 12px 0 rgba(51, 62, 73, 0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .form .heading {
     font-size: 2rem;
@@ -103,4 +109,51 @@ html {
 
 .spacer {
     margin-top: 36px;
+}
+
+#form-2 {
+    transform: translate(-100vw, -50%);
+}
+
+#form-1 {
+    animation: 1s cubic-bezier(.47,1.64,.41,.8) 1s slideIn forwards;
+}
+
+.change {
+    position: absolute;
+    top: 50px;
+    right: 24px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.change:active {
+    color: #1ac7b6;
+}
+
+.animated {
+    animation: 1s cubic-bezier(.47,1.64,.41,.8) slideIn forwards;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        transform: translate(-100vw, -50%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-100vw, -50%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
 }

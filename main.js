@@ -1,3 +1,22 @@
+const changeBtn = document.querySelectorAll(".change");
+
+changeBtn.forEach((e) => {
+    e.onclick = function () {
+        let type = e.dataset.type;
+        let loginForm =  document.getElementById("form-2");
+        let registerForm =  document.getElementById("form-1");
+        if(type == "login") {
+            registerForm.style.animation = '1.2s cubic-bezier(.47,1.64,.41,.8) slideOut forwards';
+            loginForm.classList.add("animated");
+            loginForm.style.animation = '1.2s cubic-bezier(.47,1.64,.41,.8) slideIn forwards'
+        }else if (e.dataset.type == "register") {
+            loginForm.style.animation = '1.2s cubic-bezier(.47,1.64,.41,.8) slideOut forwards';
+            registerForm.style.animation = '1.2s cubic-bezier(.47,1.64,.41,.8) slideIn forwards';
+            loginForm.classList.remove("animated");
+        }
+    };
+});
+
 // Đối tượng `Validator`
 function Validator(options) {
     function getParent(element, selector) {
